@@ -6,7 +6,8 @@ import { peopleAdd, peopleRemove } from '../actions/people.action';
 
 // ↓ Etat initial des données
 const initialState = {
-    data: []
+    data: [],
+    count: 0
 };
 
 // ↓ Reducer : La fonction qui resoud les actions de la categorie "people"
@@ -17,11 +18,13 @@ const peopleReducer = createReducer(initialState, builder => {
         .addCase(peopleAdd, (state, action) => {
             // Modification du "draft" fourni par "immer"
             state.data.push(action.payload);
+            state.count++;
         })
         .addCase(peopleRemove, (state, action) => {
             // Modification du "draft" fourni par "immer"
             const personId = action.payload;
             state.data = state.data.filter(p => p.id !== personId)
+            state.count = state.data.length;
         });
 });
 

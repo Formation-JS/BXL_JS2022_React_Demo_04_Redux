@@ -4,19 +4,29 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 // Utilisation de la Data API pour créer un browserRouter sur base des routes
-import {createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import route from './routes/route';
+
+// Utilisation du store necessite le provider de celui-ci
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 // ↓ Création du router
 const router = createBrowserRouter(route);
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* Utilisation du router avec le RouterProvider */}
-    <RouterProvider router={router} />
-    {/* NB : L'app est retiré car elle fait partie des routes */}
+
+    {/* Utilisation du Provider de "React-Redux" */}
+    <Provider store={store} >
+
+      {/* Utilisation du router avec le RouterProvider */}
+      <RouterProvider router={router} />
+      {/* NB : L'app est retiré car elle fait partie des routes */}
+
+    </Provider>
+
   </React.StrictMode>
 );
 

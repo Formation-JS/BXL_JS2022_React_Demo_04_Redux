@@ -9,6 +9,9 @@ const NavBar = ({ className }) => (
                 <Link to=''>Accueil</Link>
             </li>
             <li>
+                <Link to='people'>Personnes</Link>
+            </li>
+            <li>
                 <Link to='about'>A propos</Link>
             </li>
         </ul>
