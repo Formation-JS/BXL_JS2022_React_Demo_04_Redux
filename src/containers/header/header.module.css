@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    flex-direction: row;
+
+    padding: 20px 10px;
+    background-color: blanchedalmond;
+}
+
+.main > :first-child {
+    margin-right: 2ch;
+    color: darkmagenta;
+    font-weight: bold;
+}
+
+.menu a, .menu a:hover, .menu a:active, .menu a:visited {
+    color: brown;
+}
