@@ -1,6 +1,9 @@
 import App from '../App';
 import AboutPage from '../pages/about/about.page';
 import HomePage from '../pages/home/home.page';
+import PeopleFormPage from '../pages/people/pages/people-form.page';
+import PeopleListPage from '../pages/people/pages/people-list.page';
+import PeoplePage from '../pages/people/people.page';
 // Définition des routes de l'application
 const route = [
     {
@@ -12,6 +15,20 @@ const route = [
             {
                 index: true,
                 element: <HomePage />
+            },
+            {
+                path: 'people',
+                element: <PeoplePage />,
+                children: [
+                    {
+                        index: true,
+                        element: <PeopleListPage />
+                    },
+                    {
+                        path: 'add',
+                        element: <PeopleFormPage />
+                    }
+                ]
             },
             {
                 path: 'about',
