@@ -1,7 +1,7 @@
 // Gestion des données par le store pour la categorie "people"
 
 import { createReducer } from '@reduxjs/toolkit';
-import { peopleAdd, peopleRemove } from '../actions/people.action';
+import { peopleAdd, peopleRemove, peopleReset } from '../actions/people.action';
 
 
 // ↓ Etat initial des données
@@ -25,6 +25,10 @@ const peopleReducer = createReducer(initialState, builder => {
             const personId = action.payload;
             state.data = state.data.filter(p => p.id !== personId)
             state.count = state.data.length;
+        })
+        .addCase(peopleReset, (state, action) => {
+            state.data = [];
+            state.count = 0;
         });
 });
 

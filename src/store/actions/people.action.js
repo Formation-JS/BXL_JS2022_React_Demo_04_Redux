@@ -11,7 +11,6 @@ import { nanoid } from 'nanoid';
 
 
 // ↓ Les actions créators
-
 export const peopleAdd = createAction('people/add', (({ firstname, lastname }) => ({
     payload: {
         id: nanoid(),
@@ -20,5 +19,6 @@ export const peopleAdd = createAction('people/add', (({ firstname, lastname }) =
     }
 })));
 
-
 export const peopleRemove = createAction('people/remove');
+
+export const peopleReset = createAction('people/reset');
