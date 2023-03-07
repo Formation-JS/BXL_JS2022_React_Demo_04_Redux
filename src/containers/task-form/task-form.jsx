@@ -1,4 +1,6 @@
 import { useCallback, useId, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTask } from '../../store/slices/todo.slice.js';
 
 const TaskForm = () => {
 
@@ -6,9 +8,12 @@ const TaskForm = () => {
     const [name, setName] = useState('');
     const inputName = useRef();
 
+    const dispatch = useDispatch();
+
     const handleTaskSubmit = useCallback((e) => {
         e.preventDefault();
-        // TODO : Send data (=> Store Redux)
+        
+        dispatch(addTask(name));
 
         setName('');
         inputName.current.focus();

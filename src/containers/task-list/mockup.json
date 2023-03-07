@@ -1,12 +1,12 @@
 [
     {
         "id": "task01",
-        "title": "Tache 01",
+        "name": "Tache 01",
         "isDone": false
     },
     {
         "id": "task02",
-        "title": "Tache fini !",
+        "name": "Tache fini !",
         "isDone": true
     }
 ]

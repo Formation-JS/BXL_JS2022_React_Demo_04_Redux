@@ -1,6 +1,9 @@
 
 // Mockup de donnée (A delete !!!)
-import fakeData from './mockup.json';
+// import fakeData from './mockup.json';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { finishTask } from '../../store/slices/todo.slice.js';
 
 const TaskListHead = () => (
     <thead>
@@ -12,29 +15,34 @@ const TaskListHead = () => (
     </thead>
 );
 
-const TaskListRow = ({ id, title, isDone, onFinish }) => (
-    <tr>
-        <td>{title}</td>
-        <td>{isDone ? '🟢' : '⚪'}</td>
-        <td>
-            <button
-                onClick={() => onFinish(id)}
-                disabled={isDone}>
-                Fait
-            </button>
-        </td>
-    </tr>
-);
+const TaskListRow = ({ id, name, isDone }) => {
+
+    const dispatch = useDispatch();
+
+    return (
+        <tr>
+            <td>{name}</td>
+            <td>{isDone ? '🟢' : '⚪'}</td>
+            <td>
+                <button
+                    onClick={() => dispatch(finishTask(id))}
+                    disabled={isDone}>
+                    Fait
+                </button>
+            </td>
+        </tr>
+    );
+};
 
 const TaskList = () => {
 
-    // TODO : Replace FakeData with data to use :o
+    const tasks = useSelector(state => state.todo.tasks);
 
     return (
         <table>
             <TaskListHead />
             <tbody>
-                {fakeData.map(task => <TaskListRow {...task} key={task.id} />)}
+                {tasks.map(task => <TaskListRow {...task} key={task.id} />)}
             </tbody>
         </table>
     );
