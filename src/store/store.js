@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import peopleReducer from './reducers/people.reduce';
-import todoReducer from './actions/todo.action';
+import todoReducer from './slices/todo.slice';
 
 const store = configureStore({
     reducer: {
