@@ -1,6 +1,7 @@
 import App from '../App';
 import AboutPage from '../pages/about/about.page';
 import HomePage from '../pages/home/home.page';
+import NationalizePage from '../pages/nationalize/nationalize.page';
 import PeopleFormPage from '../pages/people/pages/people-form.page';
 import PeopleListPage from '../pages/people/pages/people-list.page';
 import PeoplePage from '../pages/people/people.page';
@@ -32,6 +33,10 @@ const route = [
                         element: <PeopleFormPage />
                     }
                 ]
+            },
+            {
+                path: 'nationalize',
+                element: <NationalizePage />
             },
             {
                 path: 'todo',
